@@ -51,23 +51,49 @@ Automate/
 
 ## Instalasi
 
-Masuk ke folder project:
+### Windows
+1. Pastikan Anda sudah menginstal Python (disarankan versi 3.10 ke atas) dan mencentang opsi **"Add Python to PATH"** saat instalasi.
+2. Buka Command Prompt (CMD) atau PowerShell, lalu masuk ke folder project:
+   ```cmd
+   cd C:\path\to\Automate
+   ```
+3. Install dependency:
+   ```cmd
+   pip install -r requirements.txt
+   ```
+4. Install browser Chromium untuk Playwright:
+   ```cmd
+   playwright install chromium
+   ```
 
-```bash
-cd /home/fajarsyb/code/Automate
-```
+### macOS
+1. Pastikan Python 3 sudah terinstal (bisa lewat [python.org](https://www.python.org/) atau Homebrew `brew install python`).
+2. Buka Terminal, masuk ke folder project:
+   ```bash
+   cd /path/to/Automate
+   ```
+3. Install dependency:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Install browser Chromium untuk Playwright:
+   ```bash
+   playwright install chromium
+   ```
 
-Install dependency:
-
-```bash
-pip install -r requirements.txt
-```
-
-Install browser Chromium untuk Playwright:
-
-```bash
-playwright install chromium
-```
+### Linux (Ubuntu/Debian/Fedora)
+1. Masuk ke folder project:
+   ```bash
+   cd /home/fajarsyb/code/Automate
+   ```
+2. Install dependency:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Install browser Chromium untuk Playwright:
+   ```bash
+   playwright install chromium
+   ```
 
 ## Konfigurasi Telegram
 
@@ -154,15 +180,23 @@ https://www.loket.com/event/fforever30may
 
 ## Troubleshooting
 
-### GUI tidak muncul
+### GUI tidak muncul (Tkinter Error)
 
-Pastikan Python Tkinter tersedia.
+Pastikan Python Tkinter sudah terpasang di sistem operasi Anda:
 
-Di Fedora/Linux, jika Tkinter belum terpasang:
-
-```bash
-sudo dnf install python3-tkinter
-```
+- **Windows:** Tkinter secara default sudah ikut terinstal saat Anda menginstal Python dari python.org. Jika hilang, jalankan ulang installer Python lalu pilih "Modify" dan pastikan opsi "tcl/tk and IDLE" dicentang.
+- **macOS:** Jika Anda menggunakan Homebrew untuk menginstal Python, pastikan juga menginstal aspek tcl-tk:
+  ```bash
+  brew install python-tk
+  ```
+- **Fedora/RHEL/CentOS:**
+  ```bash
+  sudo dnf install python3-tkinter
+  ```
+- **Ubuntu/Debian:**
+  ```bash
+  sudo apt-get install python3-tk
+  ```
 
 ### Error Playwright browser belum tersedia
 
